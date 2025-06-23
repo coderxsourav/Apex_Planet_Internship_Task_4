@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sourav | Web Developer</title>
+    <!-- Google Fonts & AOS -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <a href="todo.html" target="_blank"></a>
+    <a href="products.html" target="_blank"></a>
+    <style>
+      :root {
+        --primary: #69f5e9;
+        --bg: #f8f9fc;
+        --text: #ffffff;
+        --card-bg: #ffffff;
+        --border: #e5e7eb;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        font-family: "Inter", sans-serif;
+        color: var(--text);
+        background-color: var(--bg);
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("Task_4_Img/pexels-joshsorenson-1714205.jpg") no-repeat center
+          center/cover;
+        opacity: 1;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        width: 280px;
+        background: #6f6bac9e;
+        padding: 40px 20px;
+        border-right: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        height: 100vh;
+        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.03);
+      }
+
+      .sidebar img {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        border: 4px solid var(--primary);
+        object-fit: cover;
+        margin-bottom: 20px;
+      }
+
+      .sidebar h1 {
+        font-size: 1.6rem;
+        color: var(--primary);
+        margin-bottom: 5px;
+      }
+
+      .sidebar p {
+        font-size: 0.95rem;
+        color: #0e0d0d;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .sidebar .social {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+
+      .sidebar .social a {
+        text-decoration: none;
+        font-size: 1.2rem;
+        color: var(--primary);
+        transition: color 0.3s;
+      }
+
+      .sidebar .social a:hover {
+        color: #0056b3;
+      }
+
+      .sidebar button {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .sidebar button:hover {
+        background: #0056b3;
+      }
+
+      /* Main Content */
+      .main {
+        margin-left: 280px;
+        padding: 40px 30px;
+        width: calc(100% - 280px);
+      }
+
+      nav {
+        display: flex;
+        justify-content: flex-end;
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      nav a {
+        text-decoration: none;
+        font-weight: 500;
+        color: var(--text);
+        transition: color 0.3s ease;
+      }
+
+      nav a:hover {
+        color: var(--primary);
+      }
+
+      section {
+        margin-bottom: 60px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        text-align: center;
+        color: var(--primary);
+      }
+
+      .about p {
+        line-height: 1.8;
+        text-align: center;
+        color: #ffffff;
+      }
+
+      .projects .project {
+        background: var(--card-bg);
+        padding: 20px 25px;
+        margin-bottom: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+      }
+
+      .projects .project:hover {
+        transform: translateY(-6px);
+      }
+
+      .project h3 {
+        margin-bottom: 8px;
+      }
+
+      .project p {
+        color: #504a4a;
+      }
+
+      .contact form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .contact input,
+      .contact textarea {
+        padding: 14px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+      }
+
+      .contact button {
+        background: var(--primary);
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px;
+        color: #999;
+        font-size: 0.9rem;
+        margin-top: 40px;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          flex-direction: column;
+        }
+
+        .sidebar {
+          position: relative;
+          width: 100%;
+          height: auto;
+          flex-direction: row;
+          justify-content: space-between;
+          padding: 20px;
+        }
+
+        .sidebar img {
+          margin: 0;
+          width: 60px;
+          height: 60px;
+        }
+
+        .sidebar h1,
+        .sidebar p,
+        .sidebar .social,
+        .sidebar button {
+          display: none;
+        }
+
+        .main {
+          margin-left: 0;
+          width: 100%;
+          padding: 20px;
+        }
+
+        nav {
+          justify-content: center;
+          gap: 15px;
+          flex-wrap: wrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar" data-aos="fade-right">
+      <img src="Task_4_Img/tinywow_1000061848_81002056.jpg" alt="Profile" />
+      <h1>Sourav</h1>
+      <p>Web Developer & UI Designer</p>
+      <p>
+        Hello! I'm Sourav, a creative front-end web developer with a passion for
+        crafting beautiful and functional websites. I specialize in HTML, CSS,
+        JavaScript, and responsive UI design.
+      </p>
+      <div class="social">
+        <a href="https://github.com/coderxsourav"><span>🌐</span></a>
+        <a href="https://linkedin.com/in/sourav-mahto-6044802b7"
+          ><span>💼</span></a
+        >
+        <a href="https://souravmahto@gmail.com"><span>📧</span></a>
+      </div>
+    </div>
+
+    <div class="main">
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <section id="about" class="about" data-aos="fade-up">
+        <h2>About Me</h2>
+        <p>
+          Hello! I'm Sourav, a creative front-end web developer with a passion
+          for crafting beautiful and functional websites. I specialize in HTML,
+          CSS, JavaScript, and responsive UI design.
+        </p>
+      </section>
+
+      <section id="projects" class="projects" data-aos="zoom-in">
+        <h2>Projects</h2>
+        <div class="project">
+          <h3><a href="todo.html" target="_blank">Open To-Do App</a></h3>
+          <p>
+            A responsive to-do list using LocalStorage with clean UI and data
+            persistence.
+          </p>
+        </div>
+        <div class="project">
+          <h3><a href="products.html" target="_blank">Product CART</a></h3>
+          <p>
+            A simple and user-friendly product listing page that lets users view
+            items, filter them by category, and sort by price or rating.
+            Designed to look clean and work smoothly on any device. Perfect for
+            practicing real e-commerce features using HTML, CSS, and JavaScript.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" class="contact" data-aos="fade-up">
+        <h2>Contact Me</h2>
+        <form id="contactForm">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+
+      <footer>&copy; 2025 Sourav. All rights reserved.</footer>
+    </div>
+
+    <!-- AOS Scroll Effects -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert("Thank you! Your message has been sent.");
+          this.reset();
+        });
+    </script>
+  </body>
+</html>
